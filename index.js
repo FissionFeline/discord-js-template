@@ -8,6 +8,8 @@ const client = new Discord.Client({ intents: fuckIntents })
 require('dotenv').config()
 const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
 
+client.config = require("./config.json")
+
 client.once('ready', () => {
     console.log('\x1b[35m%s\x1b[0m', `Connected! You're in as ${client.user.username}`);
     client.user.setActivity("Something creative");
@@ -60,7 +62,7 @@ for (const file of shlash_commands) {
         console.log('\x1b[33m%s\x1b[0m', 'Registering commands to the Discord API ...');
 
         await rest.put(
-            Routes.applicationCommands("978007266915663912"), { body: command_register_collect },
+            Routes.applicationCommands("1001570936165769286"), { body: command_register_collect },
         );
 
         console.log('\x1b[32m%s\x1b[0m', 'Successfully registered client commands!!!');
