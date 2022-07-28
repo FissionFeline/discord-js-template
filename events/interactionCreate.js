@@ -7,6 +7,7 @@ module.exports = async(client, interaction) => {
             } catch (error) {
                 console.log('\x1b[31m%s\x1b[0m', `We had an error executing ${interaction.commandName}`)
                 console.log(error)
+                return interaction.reply("Failed to execute command")
             }
         } else {
             console.log('\x1b[31m%s\x1b[0m', `Warning interaction command not found or loaded ${interaction.commandName}`)
