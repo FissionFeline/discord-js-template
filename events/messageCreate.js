@@ -1,6 +1,5 @@
 module.exports = async(client, message) => {
     const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js")
-    console.log(message.author)
     if (message.author.bot) return;
 
     if (message.content.indexOf(client.config.commandstart) !== 0) return;
