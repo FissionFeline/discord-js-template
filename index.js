@@ -61,7 +61,7 @@ for (const file of shlash_commands) {
         Logger.info(`[REST] Registering ${command_register_collect.length} commands`)
 
         await rest.put(
-            Routes.applicationCommands("978007266915663912"), { body: command_register_collect },
+            Routes.applicationCommands(process.env.APPLICATION_ID), { body: command_register_collect },
         );
 
         Logger.success('[REST] Successfully registered all commands')
