@@ -10,7 +10,6 @@ class Logger {
   }
 
   static warn(message) {
-    fs.appendFileSync(this.logName, `${(new Date()).toLocaleString()} [WARN] ${message}\n`);
     console.warn(`${colors.gray((new Date()).toLocaleString())} ${colors.yellow('[WARN]')} ${message}`);
   }
 
