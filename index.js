@@ -4,25 +4,26 @@ const fuckIntents = new Discord.Intents(32767);
 const { REST } = require('@discordjs/rest');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { Routes } = require('discord-api-types/v9');
+const Logger = require('./utils/logger');
 const client = new Discord.Client({ intents: fuckIntents })
 require('dotenv').config()
 const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
 
 client.once('ready', () => {
-    console.log('\x1b[35m%s\x1b[0m', `Connected! You're in as ${client.user.username}`);
+    Logger.success(`[Discord] Connected! You're in as ${client.user.username}`)
     client.user.setActivity("Something creative");
 });
 
 const events = fs.readdirSync("./events").filter(file => file.endsWith(".js"));
 for (const file of events) {
-    console.log('\x1b[33m%s\x1b[0m', `Event: Attempting to load ${file}`)
+    Logger.info(`[Events] Attempting to load ${file}`)
     const eventName = file.split(".")[0];
     const event = require(`./events/${file}`);
     try {
         client.on(eventName, event.bind(null, client));
-        console.log('\x1b[32m%s\x1b[0m', `Event: Successfully loaded ${eventName}`)
-    } catch (errro) {
-        console.log('\x1b[31m%s\x1b[0m', `Unable to load Event:${file}`)
+        Logger.success(`[Events] Successfully loaded ${eventName}`)
+    } catch (error) {
+        Logger.warn(`[Events] Unable to load ${file}`)
         console.error(error)
     }
 }
@@ -31,13 +32,13 @@ client.commands = new Discord.Collection();
 
 const commands = fs.readdirSync("./coms").filter(file => file.endsWith(".js"));
 for (const file of commands) {
-    console.log('\x1b[33m%s\x1b[0m', `Attempting to load command ${file}`)
+    Logger.info(`[Commands] Attempting to load ${file}`)
     const command = require(`./coms/${file}`)
     try {
         client.commands.set(command.name, command)
-        console.log('\x1b[32m%s\x1b[0m', `Successfully loaded command ${command.name}`)
+        Logger.success(`[Commands] Successfully loaded ${command.name}`)
     } catch (error) {
-        console.log('\x1b[31m%s\x1b[0m', `Unable to load command:${file}`)
+        Logger.warn(`[Commands] Unable to load ${file}`)
         console.error(error)
     }
 }
@@ -50,27 +51,28 @@ const shlash_commands = fs.readdirSync("./slash_coms").filter(file => file.endsW
 for (const file of shlash_commands) {
     const commandName = file.split(".")[0];
     const command = require(`./slash_coms/${file}`);
-    console.log('\x1b[35m%s\x1b[0m', `Attempting to load slash command ${commandName}`);
+    Logger.info(`[Commands] Attempting to load slash command ${commandName}`)
     client.slash_commands.set(command.name, command);
     command_register_collect.push(command.register_command)
 }
 
 (async() => {
     try {
-        console.log('\x1b[33m%s\x1b[0m', 'Registering commands to the Discord API ...');
+        Logger.info(`[REST] Registering ${command_register_collect.length} commands`)
 
         await rest.put(
             Routes.applicationCommands("978007266915663912"), { body: command_register_collect },
         );
 
-        console.log('\x1b[32m%s\x1b[0m', 'Successfully registered client commands!!!');
+        Logger.success('[REST] Successfully registered all commands')
     } catch (error) {
-        console.error(error);
+        Logger.error('[REST] Failed to register commands')
     }
 })();
 
 process.on('uncaughtException', error => {
-    console.error('There was an uncaught error', error)
+    Logger.error('[Process] Uncaught exception:')
+    console.error(error);
     process.exit(1)
 })
 
