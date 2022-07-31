@@ -9,7 +9,7 @@
         "lint": "node_modules/.bin/eslint ./commands/**/*.js ./events/**/*.js ./utils/**/*.js index.js"
     },
     "author": "furious feline",
-    "license": "ISC",
+    "license": "GPL-3.0-only",
     "dependencies": {
         "@discordjs/builders": "^1.1.0",
         "@discordjs/rest": "^1.0.1",
