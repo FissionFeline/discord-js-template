@@ -7,5 +7,6 @@ extends:
 parserOptions:
   ecmaVersion: latest
 rules: {
-  no-unused-vars: ["error", { "argsIgnorePattern": "^_" }]
+  no-unused-vars: ["error", { "argsIgnorePattern": "^_" }],
+  max-len: "off"
 }
