@@ -29,8 +29,7 @@ client.once('ready', async () => {
 });
 
 process.on('uncaughtException', (error) => {
-  Logger.error('[Process] Uncaught exception:');
-  console.error(error);
+  Logger.error(`[Process] Uncaught exception:\n${error.stack}\n`);
   process.exit(1);
 });
 
