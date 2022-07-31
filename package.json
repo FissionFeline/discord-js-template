@@ -19,7 +19,7 @@
         "dotenv": "^16.0.0"
     },
     "engines": {
-        "node": "16.4.2"
+        "node": ">=16.0.0"
     },
     "devDependencies": {
         "eslint": "^8.20.0",
