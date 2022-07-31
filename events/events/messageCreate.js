@@ -1,23 +1,17 @@
-module.exports = async(client, message) => {
-    const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js")
+module.exports = async (client, message) => {
+  if (message.author.bot) return;
 
-    if (message.author.bot) return;
+  if (!message.content.startsWith(client.config.commandstart)) return;
 
-    if (message.content.indexOf(client.config.commandstart) !== 0) return;
+  const args = message.content.slice(client.config.commandstart).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
 
-    const args = message.content.slice(client.config.commandstart).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
+  const cmd = client.commandManager.textCommands.get(command.substring(1));
+  if (!cmd) return;
 
-    const cmd = client.commands.get(command.substring(1));
-    if (cmd == undefined) {
-        return;
-    }
-
-    message.content = message.content.substring(message.content.indexOf(' ') + 1)
-
-    if (message.member.roles.cache.has(cmd.authRole) || !cmd.authRole) {
-        cmd.execute(client, message, args);
-    } else {
-        message.reply("You dont have perms to do that fucker")
-    }
-}
+  if (message.member.roles.cache.has(cmd.authRole) || !cmd.authRole) {
+    cmd.execute(client, message, args);
+  } else {
+    message.reply('You do not have permission to do that!');
+  }
+};

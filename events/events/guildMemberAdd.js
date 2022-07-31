@@ -1,3 +1,3 @@
-module.exports = (client , member) => {
-    //croc :3
-}
+module.exports = (_client, _member) => {
+  // croc :3
+};
