@@ -12,7 +12,7 @@ class CommandManager {
   }
 
   scanTextCommands() {
-    fs.readdirSync('./commands/text').filter((file) => file.endsWith('.js')).forEach((file) => {
+    fs.readdirSync('./src/commands/text').filter((file) => file.endsWith('.js')).forEach((file) => {
       const commandName = file.split('.')[0];
       Logger.info(`[Commands] Attempting to load text command ${commandName}`);
 
@@ -28,7 +28,7 @@ class CommandManager {
   }
 
   scanSlashCommand() {
-    fs.readdirSync('./commands/slash').filter((file) => file.endsWith('.js')).forEach((file) => {
+    fs.readdirSync('./src/commands/slash').filter((file) => file.endsWith('.js')).forEach((file) => {
       const commandName = file.split('.')[0];
       Logger.info(`[Commands] Attempting to load slash command ${commandName}`);
 

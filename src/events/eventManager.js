@@ -8,7 +8,7 @@ class EventManager {
   }
 
   registerEvents() {
-    fs.readdirSync('./events/events').filter((file) => file.endsWith('.js')).forEach((file) => {
+    fs.readdirSync('./src/events/events').filter((file) => file.endsWith('.js')).forEach((file) => {
       const eventName = file.split('.')[0];
       Logger.info(`[Events] Attempting to load event ${eventName}`);
 
