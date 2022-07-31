@@ -22,7 +22,7 @@ class CommandManager {
         this.textCommands.set(command.name, command);
         Logger.success(`[Commands] Successfully loaded ${command.name}`);
       } catch (error) {
-        Logger.warn(`[Commands] Unable to load text command ${file}: ${error.toString()}`);
+        Logger.warn(`[Commands] Unable to load text command ${file}:\n${error.stack}\n`);
       }
     });
   }
@@ -37,7 +37,7 @@ class CommandManager {
         const command = require(`./slash/${commandName}`);
         this.slashCommands.set(command.name, command);
       } catch (error) {
-        Logger.warn(`[Commands] Unable to load slash command ${commandName}: ${error.toString()}`);
+        Logger.warn(`[Commands] Unable to load slash command ${commandName}:\n${error.stack}\n`);
       }
     });
   }
