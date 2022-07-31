@@ -5,10 +5,10 @@ const CommandManager = require('./commands/commandManager');
 const EventManager = require('./events/eventManager');
 const config = require('./config.json');
 
-const fuckIntents = new Discord.Intents(32767);
+const allIntents = new Discord.Intents(32767);
 const Logger = require('./utils/logger');
 
-const client = new Discord.Client({ intents: fuckIntents });
+const client = new Discord.Client({ intents: allIntents });
 client.config = config;
 
 const commandManager = new CommandManager();
