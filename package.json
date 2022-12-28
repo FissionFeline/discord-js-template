@@ -16,7 +16,7 @@
         "colors": "^1.4.0",
         "discord-api-types": "^0.36.3",
         "discord.js": "^13.3.1",
-        "dotenv": "^16.0.0"
+        "dotenv": "^16.0.3"
     },
     "engines": {
         "node": ">=16.0.0"
