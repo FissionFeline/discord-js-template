@@ -1,0 +1,26 @@
+{
+  "name": "discord-js-template",
+  "version": "3.0.0",
+  "description": "A new release of my Discord.js Template Supporting Discord.js 14 ",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FissionFeline/discord-js-template.git"
+  },
+  "keywords": [
+    "Discord",
+    "Discord.js"
+  ],
+  "author": "Furious Feline",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FissionFeline/discord-js-template/issues"
+  },
+  "homepage": "https://github.com/FissionFeline/discord-js-template#readme",
+  "dependencies": {
+    "discord.js": "^14.8.0"
+  }
+}
