@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/FissionFeline/discord-js-template#readme",
   "dependencies": {
-    "discord.js": "^14.8.0"
+    "assert": "^2.0.0",
+    "discord.js": "^14.8.0",
+    "dotenv": "^16.0.3"
   }
 }
