@@ -12,6 +12,11 @@ const client = new Discord.Client({
         Discord.GatewayIntentBits.MessageContent,
         Discord.GatewayIntentBits.GuildMembers,
     ],
+    partials: [
+        Discord.Partials.Message,
+        Discord.Partials.Channel,
+        Discord.Partials.Reaction
+    ]
 });
 
 find_events(client)
