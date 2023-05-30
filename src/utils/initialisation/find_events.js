@@ -1,4 +1,5 @@
 const fs = require('fs')
+const logger = new require('../logger.js')
 const path_to_events = __dirname + '/../../events/'
 
 module.exports = (client) => {
