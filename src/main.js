@@ -3,7 +3,7 @@ require('dotenv').config()
 const assert = require('assert')
 const find_events = require('./utils/initialisation/find_events')
 
-assert(process.env.TOKEN, "A Discord Token for your bot is required ! Please go to your application page to get it!")
+assert(process.env.TOKEN, "A Discord Token for your bot is required ! Please go to your application page to get it! Set your token then as an enviormental variable with the TOKEN variable name!")
 
 const client = new Discord.Client({
     intents: [
