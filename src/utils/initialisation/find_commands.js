@@ -23,4 +23,6 @@ module.exports = (client) => {
 
         logger.success(`Successfully loaded ${command}`)
     }
+    logger.info("Commands loaded")
+    return stack
 }
