@@ -14,13 +14,13 @@ module.exports = (client) => {
             case "on":
                 {
                     logger.success(`Successfully loaded ${element} event`)
-                    client.on(element_loaded.event, (...args) => element_loaded.call(...args));
+                    client.on(element_loaded.event, (...args) => element_loaded.call(client,...args));
                     break;
                 }
             case "once":
                 {
                     logger.success(`Successfully loaded ${element} event`)
-                    client.once(element_loaded.event, (...args) => element_loaded.call(...args));
+                    client.once(element_loaded.event, (...args) => element_loaded.call(client,...args));
                     break;
                 }
             default:
