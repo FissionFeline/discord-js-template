@@ -1,29 +1,30 @@
 {
-    "name": "discord.js-template",
+    "name": "discord-js-template",
     "version": "3.0.0",
-    "description": "My usual discord template",
-    "main": "src/index.js",
+    "description": "A new release of my Discord.js Template Supporting Discord.js 14 ",
+    "main": "src/main.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node .",
-        "lint": "node_modules/.bin/eslint ./src/**/*.js"
+        "start": "node src/main.js"
     },
-    "author": "furious feline",
-    "license": "GPL-3.0-only",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/FissionFeline/discord-js-template.git"
+    },
+    "keywords": [
+        "Discord",
+        "Discord.js"
+    ],
+    "author": "Furious Feline",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/FissionFeline/discord-js-template/issues"
+    },
+    "homepage": "https://github.com/FissionFeline/discord-js-template#readme",
     "dependencies": {
-        "@discordjs/builders": "^1.1.0",
-        "@discordjs/rest": "^1.0.1",
+        "assert": "^2.0.0",
         "colors": "^1.4.0",
-        "discord-api-types": "^0.36.3",
-        "discord.js": "^13.3.1",
-        "dotenv": "^16.0.0"
-    },
-    "engines": {
-        "node": ">=16.0.0"
-    },
-    "devDependencies": {
-        "eslint": "^8.20.0",
-        "eslint-config-airbnb-base": "^15.0.0",
-        "eslint-plugin-import": "^2.26.0"
+        "discord.js": "^14.8.0",
+        "dotenv": "^16.0.3"
     }
 }

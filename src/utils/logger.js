@@ -1,22 +1,24 @@
-/* eslint-disable no-console */
 const colors = require('colors/safe');
 
 class Logger {
-  static info(message) {
-    console.log(`${colors.gray((new Date()).toLocaleString())} ${colors.cyan('[INFO]')} ${message}`);
-  }
+    constructor(origin) {
+        this.origin = origin
+    }
+    info(message) {
+        console.log(`${colors.gray((new Date()).toLocaleString())} ${colors.cyan(`[${this.origin}] [INFO]`)} ${message}`);
+    }
 
-  static success(message) {
-    console.log(`${colors.gray((new Date()).toLocaleString())} ${colors.green('[SUCCESS]')} ${message}`);
-  }
+    success(message) {
+        console.log(`${colors.gray((new Date()).toLocaleString())} ${colors.green(`[${this.origin}] [SUCCESS]`)} ${message}`);
+    }
 
-  static warn(message) {
-    console.warn(`${colors.gray((new Date()).toLocaleString())} ${colors.yellow('[WARN]')} ${message}`);
-  }
+    warn(message) {
+        console.warn(`${colors.gray((new Date()).toLocaleString())} ${colors.yellow(`[${this.origin}] [WARN]`)} ${message}`);
+    }
 
-  static error(message) {
-    console.error(`${colors.gray((new Date()).toLocaleString())} ${colors.red('[ERROR]')} ${message}`);
-  }
+    error(message) {
+        console.error(`${colors.gray((new Date()).toLocaleString())} ${colors.red(`[${this.origin}] [ERROR]`)} ${message}`);
+    }
 }
 
 module.exports = Logger;
