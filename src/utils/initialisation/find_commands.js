@@ -16,7 +16,7 @@ module.exports = (client) => {
         if (typeof command_loaded.execute === 'undefined' || typeof command_loaded.execute !== 'function') { logger.error(`${command} does not have the execute function`); continue }
         if (command_loaded.register_command instanceof SlashCommandBuilder == false) { logger.error(`${command} does not have the register_command SlashcommandBuilder instance`);continue}
 
-        if (Object.keys(client.commands).includes(command_loaded.register_command.name)) { logger.warning(`Two or more commands share the name ${command_loaded.register_command.name}`);continue}
+        if (Object.keys(client.commands).includes(command_loaded.register_command.name)) { logger.warn(`Two or more commands share the name ${command_loaded.register_command.name}`);continue}
 
         client.commands[command_loaded.register_command.name] = command_loaded
         stack.push(command_loaded.register_command)
